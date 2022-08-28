@@ -10,4 +10,4 @@ steps:
 
 # Push artifacts
 images:
-  - "asia-northeast1-docker.pkg.dev/${PROJECT_ID}/next-cloudrun"
+  - "asia-northeast1-docker.pkg.dev/${PROJECT_ID}/next-cloudrun:${SHORT_SHA}"
