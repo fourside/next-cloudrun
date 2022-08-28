@@ -1,0 +1,13 @@
+steps:
+
+  # build docker image
+  - name: "gcr.io/cloud-builders/docker"
+    args: [
+      "build",
+      "-t", "asia-northeast1-docker.pkg.dev/$PROJECT_ID/next-cloudrun:${SHORT_SHA}",
+       "."
+    ]
+
+# Push artifacts
+images:
+  - "asia-northeast1-docker.pkg.dev/${PROJECT_ID}/next-cloudrun"
