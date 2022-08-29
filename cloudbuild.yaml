@@ -8,8 +8,12 @@ steps:
        "."
     ]
 
+  # Push the image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "asia-northeast1-docker.pkg.dev/${PROJECT_ID}/next-cloudrun/image:${SHORT_SHA}"]
+
   # deploy cloud run
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
     args: [
       "run", 
@@ -21,6 +25,5 @@ steps:
       "asia-northeast1"
     ]
 
-# Push artifacts
 images:
   - "asia-northeast1-docker.pkg.dev/${PROJECT_ID}/next-cloudrun/image:${SHORT_SHA}"
